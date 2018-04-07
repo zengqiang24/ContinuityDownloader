@@ -16,7 +16,7 @@ class DefaultNetWorkEngine : INetWorkEngine {
     var url = URL(fileUrl)
     val conn = url.openConnection() as HttpURLConnection
     if (conn.responseCode == HttpURLConnection.HTTP_OK) {
-       val disposition = conn.getHeaderField("Content-Disposition")
+      val disposition = conn.getHeaderField("Content-Disposition")
       var fileName = extractFileName(disposition, fileUrl)
 
       val inputStream = conn.inputStream
@@ -25,22 +25,22 @@ class DefaultNetWorkEngine : INetWorkEngine {
       val fileOutputStream = FileOutputStream(fullFileSavePath)
       var byteRead = -1
       val byteArray = ByteArray(BUFFERSIZE)
-       while (true) {
+      while (true) {
         byteRead = inputStream.read(byteArray)
-        if (byteRead<0)
-        break
+        if (byteRead < 0)
+          break
         fileOutputStream.write(byteArray, 0, byteRead)
       }
       inputStream.close()
       fileOutputStream.close()
       DownloadLogger.d("file downloaded...")
-    }else{
+    } else {
       DownloadLogger.w("file downloaded fail...")
     }
   }
 
   private fun extractFileName(disposition: String?, url: String): String? {
-     return if (disposition!=null&&disposition.indexOf("filename=") > 0)
+    return if (disposition != null && disposition.indexOf("filename=") > 0)
       disposition.substring(disposition.indexOf("filename=") + 10,
           disposition.length - 1)
     else
@@ -48,7 +48,6 @@ class DefaultNetWorkEngine : INetWorkEngine {
           url.lastIndexOf("/") + 1,
           url.length)
   }
-
 
 
 }

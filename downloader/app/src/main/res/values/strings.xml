@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">downloader</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="start_download_file">Start Download File</string>
 </resources>

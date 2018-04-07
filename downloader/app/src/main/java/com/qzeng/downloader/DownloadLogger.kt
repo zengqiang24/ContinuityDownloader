@@ -10,7 +10,7 @@ object DownloadLogger {
       Log.d(TAG, txt)
   }
 
-  fun w(warn:String){
+  fun w(warn: String) {
     if (BuildConfig.DEBUG)
       Log.w(TAG, warn)
   }
