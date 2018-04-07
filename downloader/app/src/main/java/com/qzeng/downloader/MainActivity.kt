@@ -17,8 +17,9 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
 
-            DownloadTask(FileEntity("4312","file1","http://www.baidu.img",434.32)).start()
-        }
+            var fileUrl="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1784954478,3132021255&fm=27&gp=0.jpg"
+            DownloadManager.download(fileUrl)
+         }
 
     }
 
